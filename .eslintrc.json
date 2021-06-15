@@ -1,0 +1,180 @@
+{
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended"
+	],
+	"ignorePatterns": [
+		"node_modules"
+	],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 8
+	},
+	"plugins": [
+		"import"
+	],
+	"root": true,
+	"rules": {
+		"arrow-body-style": [
+			"warn",
+			"as-needed"
+		],
+		"arrow-parens": [
+			"warn",
+			"as-needed"
+		],
+		"brace-style": [
+			"warn",
+			"1tbs"
+		],
+		"curly": [
+			"error",
+			"multi-or-nest"
+		],
+		"dot-notation": [
+			"warn"
+		],
+		"eqeqeq": [
+			"warn",
+			"always"
+		],
+		"generator-star-spacing": [
+			"warn",
+			"after"
+		],
+		"indent": [
+			"warn",
+			2
+		],
+		"linebreak-style": [
+			"warn",
+			"unix"
+		],
+		"no-case-declarations": "warn",
+		"no-console": "warn",
+		"no-duplicate-imports": [
+			"warn"
+		],
+		"no-else-return": [
+			"warn",
+			{
+				"allowElseIf": true
+			}
+		],
+		"no-eval": [
+			"error",
+			{
+				"allowIndirect": false
+			}
+		],
+		"no-iterator": [
+			"warn"
+		],
+		"no-multi-assign": [
+			"warn"
+		],
+		"no-new-func": [
+			"warn"
+		],
+		"no-new-object": [
+			"warn"
+		],
+		"no-new-wrappers": [
+			"warn"
+		],
+		"no-param-reassign": [
+			"warn",
+			{
+				"props": true
+			}
+		],
+		"no-plusplus": [
+			"warn",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
+		"no-useless-call": [
+			"warn"
+		],
+		"object-curly-spacing": [
+			"warn",
+			"never"
+		],
+		"object-shorthand": [
+			"warn",
+			"always",
+			{
+				"avoidExplicitReturnArrows": true
+			}
+		],
+		"prefer-arrow-callback": [
+			"warn",
+			{
+				"allowNamedFunctions": true
+			}
+		],
+		"prefer-const": [
+			"error"
+		],
+		"no-unused-vars": "error",
+		"prefer-destructuring": [
+			"warn",
+			{
+				"object": true,
+				"array": false
+			}
+		],
+		"prefer-rest-params": [
+			"warn"
+		],
+		"prefer-spread": [
+			"warn"
+		],
+		"prefer-template": [
+			"warn"
+		],
+		"quote-props": [
+			"warn",
+			"as-needed"
+		],
+		"quotes": [
+			"warn",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"import/no-extraneous-dependencies": [
+			"error", {"devDependencies": true}
+		]
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/*.test.js",
+				"**/__tests__/*.js",
+				"**/__tests__/**/*.js",
+				"**/__testfixtures__/*.js",
+				"**/__testfixtures__/**/*.js",
+				"**/__mocks__/*.js",
+				"**/__mocks__/**/*.js"
+			],
+			"rules": {
+        "import/no-extraneous-dependencies": "off"
+     	}
+		},
+		{
+			"files": ["generators/**/templates/*.js"],
+			"rules": {
+				"import/no-extraneous-dependencies": "off",
+				"no-unused-vars": "off",
+				"no-undef": "off"
+			}
+		}
+	]
+}

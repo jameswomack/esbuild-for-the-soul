@@ -1,3 +1,8 @@
+target/scripts/_.._
+target/scripts/*.js.map
+target/scripts/*.js
+.yarn/
+
 # Logs
 logs
 *.log
