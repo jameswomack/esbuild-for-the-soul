@@ -136,18 +136,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild-plugins/esm-externals@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@esbuild-plugins/esm-externals@npm:0.0.5"
-  dependencies:
-    debug: ^4.3.1
-    escape-string-regexp: ^4.0.0
-  peerDependencies:
-    esbuild: "*"
-  checksum: 39cabcbb3c15ed49fcad9798e11bc19b99ca756ed94250c23e9a4ced0ae7c160a47bb7d65bed4ca32d14e97fed345f45963516ec98ac4e29d87d5b6798f09120
-  languageName: node
-  linkType: hard
-
 "@eslint/eslintrc@npm:^0.4.2":
   version: 0.4.2
   resolution: "@eslint/eslintrc@npm:0.4.2"
@@ -169,7 +157,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jameswomack/esbuild-for-the-soul@workspace:."
   dependencies:
-    "@esbuild-plugins/esm-externals": ^0.0.5
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.5
     babel-eslint: ^10.1.0
     esbuild: 0.12.8
@@ -453,7 +440,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1":
+"debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1":
   version: 4.3.2
   resolution: "debug@npm:4.3.2"
   dependencies:

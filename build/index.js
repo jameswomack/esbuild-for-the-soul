@@ -1,18 +1,12 @@
 import esbuild from 'esbuild';
 import FS from 'fs';
-import Path from 'path';
 import esbuildOptions from './options.js';
 
-esbuild.build(esbuildOptions).then(({metafile: {outputs}}) => {
-  const modulePreloadPaths = Object.keys(outputs).filter((outputName) => {
-    return outputName.includes('node_modules') && !outputName.includes('.map');
-  }).map((outputName) => {
-    return outputName.replace('target', '.');
-  }, {});
+esbuild.build(esbuildOptions).then(({metafile: {outputs}}) => {  
+  const modulePreloadPaths = Object.keys(outputs).filter(outputName => (outputName.includes('lodash-es/lodash') || outputName.includes('lodash-es/pick')) && !outputName.includes('.map')).map(outputName => outputName.replace('target', '.'), {});  
+  const preexistingHTML = FS.readFileSync('./target/index.html').toString();
+  const replacement = `<!-- modulepreloads prologue -->${modulePreloadPaths.reduce((accumulator, modulePreloadPath) => `${accumulator}<link rel="modulepreload" href="${modulePreloadPath}">\n`, '')}<!-- modulepreloads epilogue -->`;
+  const modifiedHTML = preexistingHTML.replace(/(<!-- modulepreloads prologue -->)(\D+)(<!-- modulepreloads epilogue -->)/, replacement);
 
-  const HTML = FS.readFileSync('./target/index.html').toString();
-
-  FS.writeFileSync('./target/index.html', HTML.replace('<!-- modulepreloads -->', modulePreloadPaths.reduce((accumulator, modulePreloadPath) => {
-    return `${accumulator}<link rel="modulepreload" href="${modulePreloadPath}">\n`;
-  }, '')));
+  FS.writeFileSync('./target/index.html', modifiedHTML);
 });
