@@ -4,6 +4,7 @@ An outline for building modern &amp; performant JavaScript bundles w/ esbuild & 
 ## Setup
 ```
 npm i yarn@2.0.0-rc.27 -g
+yarn install # sometimes yarn hangs after completion
 npm start
 open http://localhost:3000
 ```
